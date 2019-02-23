@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
  */
 //作用的目标 类类型
 @Target(ElementType.TYPE)
-//注解存在的节点 （只存在源码）
+//注解存在的节点 （当前是只存在源码）
 @Retention(RetentionPolicy.SOURCE)
 public @interface ThreadSafe {
 
