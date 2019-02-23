@@ -28,7 +28,7 @@ public class ConcurrencyTest {
         ExecutorService executorService = Executors.newCachedThreadPool();
         //信号量                                   并发数
         final Semaphore semaphore = new Semaphore(threadTotal);
-        //线程计数器
+        //线程计数器                                           线程计数器计数次数
         final CountDownLatch countDownLatch = new CountDownLatch(clientTotal);
         //循环提交任务
         for (int i = 0; i < clientTotal ; i++) {
@@ -43,6 +43,7 @@ public class ConcurrencyTest {
                 } catch (Exception e) {
                     log.error("exception", e);
                 }
+                //线程计数器 减一
                 countDownLatch.countDown();
             });
         }
