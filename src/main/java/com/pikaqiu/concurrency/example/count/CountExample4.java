@@ -12,12 +12,21 @@ import java.util.concurrent.Semaphore;
 @NotThreadSafe
 public class CountExample4 {
 
-    // 请求总数
+    /**
+     * 请求总数
+     */
     public static int clientTotal = 5000;
 
-    // 同时并发执行的线程数
+    /**
+     * 同时并发执行的线程数
+     */
     public static int threadTotal = 200;
 
+    /**
+     * volatile只能保证取得是最新的 然后实时同步到主内存
+     * 也说明volatile 不具有原子性
+     * volatile最适合作为状态标记量
+     */
     public static volatile int count = 0;
 
     public static void main(String[] args) throws Exception {
