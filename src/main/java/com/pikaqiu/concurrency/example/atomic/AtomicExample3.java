@@ -20,10 +20,11 @@ public class AtomicExample3 {
     public static int threadTotal = 200;
     /**
      * jdk8新增 一定程度上减小并发压力
-     * 原Atomic类基于死循环对比后写入
+     * 原Atomic类基于死循环对比后写入（低并发推荐）
      * 当并发不高时写入概率很大
-     * 并发变高后效率明显变低 这时候可以考虑
-     * LongAdder进行替换
+     * 并发变高后效率明显变低 这时候可以考虑 LongAdder进行替换
+     * 基于热点数据分离 比如将value分离成一个数组
+     * 通过算法预测某一个进行计数最后结果为数组求和累加（分散了更新压力）
      */
     public static LongAdder count = new LongAdder();
 

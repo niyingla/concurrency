@@ -13,6 +13,11 @@ import java.util.concurrent.atomic.AtomicBoolean;
 @ThreadSafe
 public class AtomicExample6 {
 
+    /**
+     * 此类可以用来判断 多线程环境下某个单次操作是否执行过
+     * 还有 AtomicIntegerArray 操作的是一个数组此没操作需要传入一个索引即可
+     * 还有 AtomicStampedReference 每次操作不仅比较值还会比较版本号
+     */
     private static AtomicBoolean isHappened = new AtomicBoolean(false);
 
     // 请求总数
@@ -26,6 +31,7 @@ public class AtomicExample6 {
         final Semaphore semaphore = new Semaphore(threadTotal);
         final CountDownLatch countDownLatch = new CountDownLatch(clientTotal);
         for (int i = 0; i < clientTotal ; i++) {
+            //测试多线程并发执行 某一个单次操作
             executorService.execute(() -> {
                 try {
                     semaphore.acquire();
@@ -44,7 +50,7 @@ public class AtomicExample6 {
 
     private static void test() {
         if (isHappened.compareAndSet(false, true)) {
-            log.info("execute");
+            log.info("execute-------test");
         }
     }
 }
