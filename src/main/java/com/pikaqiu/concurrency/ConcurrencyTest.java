@@ -37,6 +37,7 @@ public class ConcurrencyTest {
                 try {
                     //启用 （是否允许范围内 超出范围线程等待）
                     semaphore.acquire();
+                    //计数值加一
                     add();
                     //释放
                     semaphore.release();
@@ -47,7 +48,7 @@ public class ConcurrencyTest {
                 countDownLatch.countDown();
             });
         }
-        //线程计数器等待
+        //线程计数器等待减为零
         countDownLatch.await();
         //线程池终止
         executorService.shutdown();

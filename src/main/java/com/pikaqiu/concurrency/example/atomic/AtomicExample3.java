@@ -18,7 +18,13 @@ public class AtomicExample3 {
 
     // 同时并发执行的线程数
     public static int threadTotal = 200;
-
+    /**
+     * jdk8新增 一定程度上减小并发压力
+     * 原Atomic类基于死循环对比后写入
+     * 当并发不高时写入概率很大
+     * 并发变高后效率明显变低 这时候可以考虑
+     * LongAdder进行替换
+     */
     public static LongAdder count = new LongAdder();
 
     public static void main(String[] args) throws Exception {
@@ -44,5 +50,6 @@ public class AtomicExample3 {
 
     private static void add() {
         count.increment();
+//        增加指定数count.add(10);
     }
 }

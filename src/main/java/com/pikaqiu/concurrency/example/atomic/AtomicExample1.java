@@ -19,6 +19,7 @@ public class AtomicExample1 {
     // 同时并发执行的线程数
     public static int threadTotal = 200;
 
+    //原子计数类
     public static AtomicInteger count = new AtomicInteger(0);
 
     public static void main(String[] args) throws Exception {
@@ -43,6 +44,7 @@ public class AtomicExample1 {
     }
 
     private static void add() {
+        //自增
         count.incrementAndGet();
         // count.getAndIncrement();
     }
