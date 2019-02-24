@@ -8,7 +8,13 @@ import java.util.concurrent.Executors;
 @Slf4j
 public class SynchronizedExample1 {
 
-    // 修饰一个代码块
+    /**
+     * 修饰一个代码块
+     * 只作用于当前对象 不同对象不影响
+     * 当代码块包含了全部方法代码时 两种用法效果等同
+     * synchronized不属于方法声明的一部分 继承无效
+     * @param j
+     */
     public void test1(int j) {
         synchronized (this) {
             for (int i = 0; i < 10; i++) {
@@ -17,7 +23,11 @@ public class SynchronizedExample1 {
         }
     }
 
-    // 修饰一个方法
+    /**
+     * 修饰一个方法
+     * 只作用于当前对象 不同对象不影响
+     * @param j
+     */
     public synchronized void test2(int j) {
         for (int i = 0; i < 10; i++) {
             log.info("test2 {} - {}", j, i);

@@ -8,7 +8,11 @@ import java.util.concurrent.Executors;
 @Slf4j
 public class SynchronizedExample2 {
 
-    // 修饰一个类
+    /**
+     * 修饰一个类
+     * 作用于这个类类型的所有对象的此方法
+     * @param j
+     */
     public static void test1(int j) {
         synchronized (SynchronizedExample2.class) {
             for (int i = 0; i < 10; i++) {
@@ -17,7 +21,11 @@ public class SynchronizedExample2 {
         }
     }
 
-    // 修饰一个静态方法
+    /**
+     * 修饰一个静态方法
+     * 作用于这个类类型的所有对象的此方法
+     * @param j
+     */
     public static synchronized void test2(int j) {
         for (int i = 0; i < 10; i++) {
             log.info("test2 {} - {}", j, i);

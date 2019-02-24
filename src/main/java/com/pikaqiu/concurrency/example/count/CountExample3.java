@@ -41,6 +41,9 @@ public class CountExample3 {
         log.info("count:{}", count);
     }
 
+    /**
+     * 加锁后挨个执行 使其变成线程安全方法
+     */
     private synchronized static void add() {
         count++;
     }
