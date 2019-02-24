@@ -16,7 +16,7 @@ public class AtomicExample6 {
     /**
      * 此类可以用来判断 多线程环境下某个单次操作是否执行过
      * 还有 AtomicIntegerArray 操作的是一个数组此没操作需要传入一个索引即可
-     * 还有 AtomicStampedReference 每次操作不仅比较值还会比较版本号
+     * 还有 AtomicStampedReference 每次操作不仅比较值还会比较版本号 解决ABA问题
      * compareAndSet也就是CAS 是先比较底层实际值和当前获取值一致 才进行运算并赋值
      */
     private static AtomicBoolean isHappened = new AtomicBoolean(false);
