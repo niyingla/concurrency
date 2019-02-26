@@ -5,6 +5,9 @@ import com.pikaqiu.concurrency.annoations.NotThreadSafe;
 /**
  * 懒汉模式 -》 双重同步锁单例模式
  * 单例实例在第一次使用时进行创建
+ *
+ * 双层检测机制不一定线程安全
+ * 因为cpu有可能进行指令重排  内存指向优先于对象初始化 执行
  */
 @NotThreadSafe
 public class SingletonExample4 {
