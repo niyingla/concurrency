@@ -19,6 +19,9 @@ public class SingletonExample7 {
         return Singleton.INSTANCE.getInstance();
     }
 
+    /**
+     * 天然适合单例
+     */
     private enum Singleton {
         INSTANCE;
 
