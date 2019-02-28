@@ -21,6 +21,11 @@ public class DateFormatExample3 {
     // 同时并发执行的线程数
     public static int threadTotal = 200;
 
+    /**
+     * 线程安全的替换方法
+     *
+     * org.joda.time 包下
+     */
     private static DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern("yyyyMMdd");
 
     public static void main(String[] args) throws Exception {

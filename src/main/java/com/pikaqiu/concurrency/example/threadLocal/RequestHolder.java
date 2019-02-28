@@ -19,6 +19,7 @@ public class RequestHolder {
     }
 
     public static void remove() {
+        //请求结束时 请务必释放，也就是删除value（类会一直伴随着项目），然后造成内存泄漏。
         requestHolder.remove();
     }
 }

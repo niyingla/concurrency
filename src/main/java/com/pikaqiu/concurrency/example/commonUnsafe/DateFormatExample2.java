@@ -41,6 +41,7 @@ public class DateFormatExample2 {
 
     private static void update() {
         try {
+            //方法内部变量 就是安全的了
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
             simpleDateFormat.parse("20180208");
         } catch (Exception e) {
