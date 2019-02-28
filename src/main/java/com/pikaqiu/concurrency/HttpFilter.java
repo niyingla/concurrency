@@ -23,7 +23,8 @@ public class HttpFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
-//        log.info("do filter, {}, {}", Thread.currentThread().getId(), request.getServletPath());
+        log.info("do filter, {}, {}", Thread.currentThread().getId(), request.getServletPath());
+        //过滤器拿到线程id 并存入threadLocal
         RequestHolder.add(Thread.currentThread().getId());
         filterChain.doFilter(servletRequest, servletResponse);
     }

@@ -18,6 +18,10 @@ public class ConcurrencyApplication extends WebMvcConfigurerAdapter{
 		SpringApplication.run(ConcurrencyApplication.class, args);
 	}
 
+	/**
+	 * 注册一个filter
+	 * @return
+	 */
 	@Bean
 	public FilterRegistrationBean httpFilter() {
 		FilterRegistrationBean registrationBean = new FilterRegistrationBean();
@@ -26,6 +30,10 @@ public class ConcurrencyApplication extends WebMvcConfigurerAdapter{
 		return registrationBean;
 	}
 
+	/**
+	 * 增加拦截器
+	 * @param registry
+	 */
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(new HttpInterceptor()).addPathPatterns("/**");
