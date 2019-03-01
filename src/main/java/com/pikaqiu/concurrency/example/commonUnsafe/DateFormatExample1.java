@@ -12,7 +12,9 @@ import java.util.concurrent.Semaphore;
 @Slf4j
 @NotThreadSafe
 public class DateFormatExample1 {
-
+    /**
+     * SimpleDateFormat 不是一个线程安全实例
+     */
     private static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
 
     // 请求总数

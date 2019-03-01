@@ -23,7 +23,7 @@ public class CountExample4 {
     public static int threadTotal = 200;
 
     /**
-     * volatile只能保证取得是最新的 然后实时同步到主内存
+     * volatile只能保证取得是最新的 然后实时同步到其他内存
      * 也说明volatile 不具有原子性
      * volatile最适合作为状态标记量
      */

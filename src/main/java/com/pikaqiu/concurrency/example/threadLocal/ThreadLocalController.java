@@ -11,6 +11,7 @@ public class ThreadLocalController {
     @RequestMapping("/test")
     @ResponseBody
     public Long test() {
+        //返回该线程id
         return RequestHolder.getId();
     }
 }
