@@ -15,8 +15,7 @@ public class CacheController {
 
     @RequestMapping("/set")
     @ResponseBody
-    public String set(@RequestParam("k") String k, @RequestParam("v") String v)
-            throws Exception {
+    public String set(@RequestParam("k") String k, @RequestParam("v") String v) throws Exception {
         redisClient.set(k, v);
         return "SUCCESS";
     }
