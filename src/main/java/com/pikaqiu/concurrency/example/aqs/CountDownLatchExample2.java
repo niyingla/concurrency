@@ -30,6 +30,7 @@ public class CountDownLatchExample2 {
                 }
             });
         }
+        //设置等待时间 超过就放行代码
         countDownLatch.await(10, TimeUnit.MILLISECONDS);
         log.info("finish");
         exec.shutdown();

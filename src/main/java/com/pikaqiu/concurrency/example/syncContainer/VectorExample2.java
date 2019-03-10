@@ -9,6 +9,11 @@ public class VectorExample2 {
 
     private static Vector<Integer> vector = new Vector<>();
 
+    /**
+     * 调用 vector.size() 后
+     * 可能其他线程调用remove方法导致数组角标越界异常
+     * @param args
+     */
     public static void main(String[] args) {
 
         while (true) {

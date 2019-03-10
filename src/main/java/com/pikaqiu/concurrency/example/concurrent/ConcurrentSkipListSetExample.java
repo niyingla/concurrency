@@ -22,6 +22,14 @@ public class ConcurrentSkipListSetExample {
 
     private static Set<Integer> set = new ConcurrentSkipListSet<>();
 
+    /**
+     * 线程安全
+     * 保证单一操作线程安全 add remove 但是 addAll removeAll时
+     * 底层还是调用本身add remove方法 所以可能还是需要其他措施保证线程安全
+     * （可能两次间隙就穿插了其他不安全操作） 元素不能为null
+     * @param args
+     * @throws Exception
+     */
     public static void main(String[] args) throws Exception {
         ExecutorService executorService = Executors.newCachedThreadPool();
         final Semaphore semaphore = new Semaphore(threadTotal);

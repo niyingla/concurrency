@@ -3,6 +3,12 @@ package com.pikaqiu.concurrency.example.syncContainer;
 import java.util.Iterator;
 import java.util.Vector;
 
+/**
+ * 高级for循环和vector
+ * 都不能对集合进行删除操作
+ * 推荐把要删除的对象加入新的集合
+ * 然后用老集合removeAll
+ */
 public class VectorExample3 {
 
     // java.util.ConcurrentModificationException
@@ -40,6 +46,6 @@ public class VectorExample3 {
         vector.add(1);
         vector.add(2);
         vector.add(3);
-        test1(vector);
+        test3(vector);
     }
 }

@@ -22,6 +22,11 @@ public class CopyOnWriteArraySetExample {
 
     private static Set<Integer> set = new CopyOnWriteArraySet<>();
 
+    /**
+     * 同 CopyOnWriteArrayList
+     * @param args
+     * @throws Exception
+     */
     public static void main(String[] args) throws Exception {
         ExecutorService executorService = Executors.newCachedThreadPool();
         final Semaphore semaphore = new Semaphore(threadTotal);

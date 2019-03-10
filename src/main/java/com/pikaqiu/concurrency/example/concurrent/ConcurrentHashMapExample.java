@@ -22,6 +22,11 @@ public class ConcurrentHashMapExample {
 
     private static Map<Integer, Integer> map = new ConcurrentHashMap<>();
 
+    /**
+     * 少量并发线程下并发很高
+     * @param args
+     * @throws Exception
+     */
     public static void main(String[] args) throws Exception {
         ExecutorService executorService = Executors.newCachedThreadPool();
         final Semaphore semaphore = new Semaphore(threadTotal);

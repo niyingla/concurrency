@@ -12,6 +12,11 @@ public class SemaphoreExample1 {
 
     private final static int threadCount = 20;
 
+    /**
+     * 信号量 控制某个资源同时访问的个数
+     * @param args
+     * @throws Exception
+     */
     public static void main(String[] args) throws Exception {
 
         ExecutorService exec = Executors.newCachedThreadPool();
