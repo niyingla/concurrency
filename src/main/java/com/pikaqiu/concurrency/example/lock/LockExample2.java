@@ -22,6 +22,9 @@ public class LockExample2 {
 
     public static int count = 0;
 
+    /**
+     * 此类方法值得单独好好学习
+     */
     private final static Lock lock = new ReentrantLock();
 
     public static void main(String[] args) throws Exception {
