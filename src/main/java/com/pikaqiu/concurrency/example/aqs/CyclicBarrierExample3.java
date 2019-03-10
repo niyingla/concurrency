@@ -10,6 +10,7 @@ import java.util.concurrent.Executors;
 public class CyclicBarrierExample3 {
 
     private static CyclicBarrier barrier = new CyclicBarrier(5, () -> {
+        //跑完所有await以后  优先执行一次run方法
         log.info("callback is running");
     });
 
