@@ -5,6 +5,9 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.pikaqiu.concurrency.annoations.ThreadSafe;
 
+/**
+ * guava 包下的线程安全集合的一些简单操作
+ */
 @ThreadSafe
 public class ImmutableExample3 {
 

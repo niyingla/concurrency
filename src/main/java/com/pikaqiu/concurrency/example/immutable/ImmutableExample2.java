@@ -17,6 +17,7 @@ public class ImmutableExample2 {
         map.put(1, 2);
         map.put(3, 4);
         map.put(5, 6);
+        //创建不允许修改的集合
         map = Collections.unmodifiableMap(map);
     }
 
