@@ -8,7 +8,10 @@ import java.util.concurrent.Executors;
 
 @Slf4j
 public class CyclicBarrierExample1 {
-
+    /**
+     * 循环屏障  可以多次适用
+     * 全部等待就绪才能开始执行
+     */
     private static CyclicBarrier barrier = new CyclicBarrier(5);
 
     public static void main(String[] args) throws Exception {

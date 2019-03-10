@@ -34,8 +34,10 @@ public class CyclicBarrierExample2 {
         Thread.sleep(1000);
         log.info("{} is ready", threadNum);
         try {
+            //超时不等待
             barrier.await(2000, TimeUnit.MILLISECONDS);
         } catch (Exception e) {
+            //超时后会抛一个异常 这里try catch 使之可以继续
             log.warn("BarrierException", e);
         }
         log.info("{} continue", threadNum);
