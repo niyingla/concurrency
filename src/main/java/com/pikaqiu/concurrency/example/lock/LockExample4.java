@@ -6,6 +6,11 @@ public class LockExample4 {
 
     class Point {
         private double x, y;
+
+        /**
+         * 对于并发有很大改进 （尤其是读很大）
+         */
+
         private final StampedLock sl = new StampedLock();
 
         void move(double deltaX, double deltaY) { // an exclusively locked method
