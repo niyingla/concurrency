@@ -27,7 +27,7 @@ public class SemaphoreExample1 {
             final int threadNum = i;
             exec.execute(() -> {
                 try {
-                    semaphore.acquire(); // 获取一个许可
+                    semaphore.acquire(); // 获取一个许可 == acquire(1)
                     test(threadNum);
                     semaphore.release(); // 释放一个许可
                 } catch (Exception e) {
