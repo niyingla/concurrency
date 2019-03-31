@@ -10,6 +10,9 @@ public class ThreadPoolExample2 {
 
     public static void main(String[] args) {
 
+        /**
+         * 创建定长线程池 超出线程会等待
+         */
         ExecutorService executorService = Executors.newFixedThreadPool(3);
 
         for (int i = 0; i < 10; i++) {

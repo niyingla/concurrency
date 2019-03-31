@@ -36,7 +36,9 @@ public class ThreadPoolExample1 {
      * @param args
      */
     public static void main(String[] args) {
-
+        /**
+         * 创建一个可缓存线程池 长度超长可回收 过短可创建
+         */
         ExecutorService executorService = Executors.newCachedThreadPool();
 
         for (int i = 0; i < 10; i++) {
