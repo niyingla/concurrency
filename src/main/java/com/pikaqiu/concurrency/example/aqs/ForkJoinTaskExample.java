@@ -8,6 +8,18 @@ import java.util.concurrent.RecursiveTask;
 
 @Slf4j
 public class ForkJoinTaskExample extends RecursiveTask<Integer> {
+    /**
+     * 大任务切割成子任务执行
+     * join子任务结果合并
+     *
+     * （内部存在工作窃取算法 先完成的的线程 获取未完成任务的线程任务去执行）
+     *
+     * 局限 1 sleep线程就不能再执行其他任务
+     *
+     *      2 任务不能执行io操作
+     *
+     *      3 任务不能抛出检查异常
+     */
 
     public static final int threshold = 2;
     private int start;
