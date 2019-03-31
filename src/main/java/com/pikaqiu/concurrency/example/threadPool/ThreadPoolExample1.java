@@ -23,6 +23,16 @@ public class ThreadPoolExample1 {
      * rejectHandler 当拒绝时的策略（阻塞队列满了 又在提交任务）
      * 1 默认 直接抛出异常 2 调用者所在线程执行任务 3 丢弃队列中最前面任务 4 直接丢弃
      *
+     *
+     * 返回excute提交任务 subimit 提交任务 能获取执行结果（execute + future）
+     *
+     * 关闭方法 shutdown 关闭线程池 等待执行完 shutdownNow 不执行完
+     *
+     * getTaskCount 获取任务总数 （已执行+未执行）
+     * getCompletedTaskCount 获取已完成任务数
+     * getPoolSize 线程池当前线程数
+     * getActiveCount 当前线程池中正在执行任务的线程数量
+     *
      * @param args
      */
     public static void main(String[] args) {
