@@ -8,6 +8,11 @@ import java.util.concurrent.FutureTask;
 @Slf4j
 public class FutureTaskExample {
 
+    /**
+     * 内部分解为两个接口 Runnable 线程, Future 获取异步结果
+     * @param args
+     * @throws Exception
+     */
     public static void main(String[] args) throws Exception {
         FutureTask<String> futureTask = new FutureTask<String>(new Callable<String>() {
             @Override

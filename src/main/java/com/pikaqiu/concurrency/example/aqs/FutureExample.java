@@ -12,7 +12,7 @@ public class FutureExample {
 
     static class MyCallable implements Callable<String> {
 
-        @Override
+         @Override
         public String call() throws Exception {
             log.info("do something in callable");
             Thread.sleep(5000);

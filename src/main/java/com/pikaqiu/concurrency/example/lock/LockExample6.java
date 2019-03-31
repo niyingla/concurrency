@@ -9,11 +9,11 @@ import java.util.concurrent.locks.ReentrantLock;
 public class LockExample6 {
 
     public static void main(String[] args) {
-        // 内部包含两个队列 AQS执行队列 和 Condition等待队列
+        // 内部包含两个队列 AQS执行队列 和 Condi  tion等待队列
         ReentrantLock reentrantLock = new ReentrantLock();
         Condition condition = reentrantLock.newCondition();
 
-        new Thread(() -> {
+        new Thread(() ->  {
             try {
                 //加入AQS等待队列
                 reentrantLock.lock();
