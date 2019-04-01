@@ -27,5 +27,6 @@ public class FutureExample {
         Thread.sleep(1000);
         String result = future.get();
         log.info("result：{}", result);
+        executorService.shutdown();
     }
 }
