@@ -24,8 +24,9 @@ public class HystrixController2 {
         return "test1";
     }
 
-    @HystrixCommand(commandProperties = {
-            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1500")},
+    @HystrixCommand(
+            commandProperties = {
+                    @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1500")},
             threadPoolProperties = {
                     @HystrixProperty(name = "coreSize", value = "30"),
                     @HystrixProperty(name = "maxQueueSize", value = "101"),
