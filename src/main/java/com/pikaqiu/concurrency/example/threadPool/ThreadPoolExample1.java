@@ -37,7 +37,8 @@ public class ThreadPoolExample1 {
      */
     public static void main(String[] args) {
         /**
-         * 创建一个可缓存线程池 长度超长可回收 过短可创建
+         * 创建一个可缓存线程池，如果线程池长度超过处理需要，
+         * 可灵活回收空闲线程，若无可回收，则新建线程
          */
         ExecutorService executorService = Executors.newCachedThreadPool();
 

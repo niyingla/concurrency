@@ -44,5 +44,6 @@ public class SynchronizedExample1 {
         executorService.execute(() -> {
             example2.test2(2);
         });
+        executorService.shutdown();
     }
 }
