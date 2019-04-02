@@ -61,7 +61,7 @@ public class LockExample5 {
     private static void add2(){
         // 试图尝试一次乐观读 返回一个类似于时间戳的邮戳整数stamp 这个stamp就可以作为这一个所获取的凭证
         long stamp = lock.tryOptimisticRead();
-        // ,如果stamp没有被修改过,则任务这次读取时有效的,
+        // 如果stamp没有被修改过,则任务这次读取时有效的,
         // 因此就可以直接return了,反之,如果stamp是不可用的,则意味着在读取的过程中,可能被其他线程改写了数据,因此,有可能出现脏读,
         // 如果如果出现这种情况,我们可以像CAS操作那样在一个死循环中一直使用乐观锁,知道成功为止
         if (lock.validate(stamp)) {
