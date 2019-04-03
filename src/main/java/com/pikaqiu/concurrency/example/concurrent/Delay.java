@@ -123,8 +123,11 @@ public class Delay {
             while (true) {
                 try {
                     System.out.println("尝试获取延迟队列中的任务。" + LocalDateTime.now());
+                    //take 方法获取一个最近的到期元素（同时删除） 线程阻塞
+                    //peek 方法获取一个元素 没有到期就返回null 非线程阻塞
+                    //poll 在用空集合调用时不是抛出异常，只是返回 null 删除第一个元素
                     System.out.println(delayQueue.take());
-                } catch (InterruptedException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
