@@ -25,7 +25,7 @@ public class AtomicExample5 {
     public volatile int count = 100;
 
     public static void main(String[] args) {
-
+        //指定需要更新值的对象
         AtomicExample5 example5 = new AtomicExample5();
         //和目标值进行比较 一致就修改
         if (updater.compareAndSet(example5, 100, 120)) {
