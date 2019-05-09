@@ -30,6 +30,7 @@ public class GuavaCacheExample1 {
                     }
                 });
 
+        //getIfPresent 存在才获取
         log.info("{}", cache.getIfPresent("key1")); // null
         cache.put("key1", 1);
         log.info("{}", cache.getIfPresent("key1")); // 1
@@ -37,6 +38,7 @@ public class GuavaCacheExample1 {
         log.info("{}", cache.getIfPresent("key1")); // null
 
         try {
+            //不存在会去走load方法
             log.info("{}", cache.get("key2")); // -1
             cache.put("key2", 2);
             log.info("{}", cache.get("key2")); // 2
