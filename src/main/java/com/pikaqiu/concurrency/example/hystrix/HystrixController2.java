@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/hystrix2")
 //@DefaultProperties(defaultFallback = "defaultFail")
 public class HystrixController2 {
+
     /**
      * queueSizeRejectionThreshold：由于 maxQueueSize 
      * 值在线程池被创建后就固定了大小，如果需要动态修改队列长度的话可以设置此值，
@@ -47,6 +48,7 @@ public class HystrixController2 {
      */
     @HystrixCommand(
             commandProperties = {
+                    //超时时间
             @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "60000")},
             threadPoolProperties = {
                     @HystrixProperty(name = "coreSize", value = "5"),
