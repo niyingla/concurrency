@@ -1,6 +1,5 @@
 package com.pikaqiu.concurrency.example.hystrix;
 
-import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import lombok.extern.slf4j.Slf4j;
@@ -39,8 +38,10 @@ public class HystrixController2 {
      *
      * maxQueueSize+maximumSize  = 最大并发
      * maximumSize = 最大线程池数
-     * keepAliveTimeMinutes 空闲释放时间 = maxQueueSize - coreSize
+     * keepAliveTimeMinutes 空闲释放时间 释放数量 = maxQueueSize - coreSize
      * queueSizeRejectionThreshold 立即拒绝数
+     * allowMaximumSizeToDivergeFromCoreSize 设置coreSize < maximumSize 会创建一个线程池，该线程池可以支持maximumSize并发，
+     * 但在相对不活动期间将向系统返回线程
      * @return
      * @throws Exception
      */
