@@ -19,7 +19,8 @@ public class HystrixController3 {
             @HystrixProperty(name = "circuitBreaker.enabled", value = "true"),  //  熔断器在整个统计时间内是否开启的阀值
             @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "3"),  // 至少有3个请求才进行熔断错误比率计算
             @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "50"), //当出错率超过50%后熔断器启动
-            @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "5000"),  // 熔断器工作时间，超过这个时间，先放一个请求进去，成功的话就关闭熔断，失败就再等一段时间
+            @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "5000"),  // 熔断器工作时间，超过这个时间，
+            // 先放一个请求进去，成功的话就关闭熔断，失败就再等一段时间
             @HystrixProperty(name = "metrics.rollingStats.timeInMilliseconds", value = "10000")// 统计滚动的时间窗口
     })
     @RequestMapping("/test1")
