@@ -1,6 +1,5 @@
 package com.pikaqiu.concurrency.example.hystrix;
 
-import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import lombok.extern.slf4j.Slf4j;
@@ -13,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/hystrix2")
 //@DefaultProperties(defaultFallback = "defaultFail")
 public class HystrixController2 {
+
     /**
      * queueSizeRejectionThreshold：由于 maxQueueSize 
      * 值在线程池被创建后就固定了大小，如果需要动态修改队列长度的话可以设置此值，
@@ -39,13 +39,16 @@ public class HystrixController2 {
      *
      * maxQueueSize+maximumSize  = 最大并发
      * maximumSize = 最大线程池数
-     * keepAliveTimeMinutes 空闲释放时间 = maxQueueSize - coreSize
+     * keepAliveTimeMinutes 空闲释放时间 释放数量 = maxQueueSize - coreSize
      * queueSizeRejectionThreshold 立即拒绝数
+     * allowMaximumSizeToDivergeFromCoreSize 设置coreSize < maximumSize 会创建一个线程池，该线程池可以支持maximumSize并发，
+     * 但在相对不活动期间将向系统返回线程
      * @return
      * @throws Exception
      */
     @HystrixCommand(
             commandProperties = {
+                    //超时时间
             @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "60000")},
             threadPoolProperties = {
                     @HystrixProperty(name = "coreSize", value = "5"),

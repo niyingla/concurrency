@@ -10,7 +10,7 @@ public class ThreadPoolExample1 {
     /**
      * 不建议的单独new Thread 或者 创建无界线程池
      *
-     *      构造参数解析
+     * ThreadPoolExecutor 构造参数解析
      * corePoolSize 核心线程数 线程小于这个时 直接创建新线程执行 任务
      * maximumPoolSize 最大线程数
      * workQueue 阻塞队列 待执行的任务
@@ -44,12 +44,7 @@ public class ThreadPoolExample1 {
 
         for (int i = 0; i < 10; i++) {
             final int index = i;
-            executorService.execute(new Runnable() {
-                @Override
-                public void run() {
-                    log.info("task:{}", index);
-                }
-            });
+            executorService.execute(() -> log.info("task:{}", index));
         }
         executorService.shutdown();
     }
