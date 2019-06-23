@@ -9,6 +9,13 @@ import java.util.concurrent.Executors;
 @Slf4j
 public class CountDownLatchExample1 {
 
+    /**
+     * aqs state 线程状态 初始为0 表示未锁定
+     *
+     * 和  线程队列
+     * 公平锁 排队  非公平锁 不排队
+     */
+
     private final static int threadCount = 200;
 
     public static void main(String[] args) throws Exception {
