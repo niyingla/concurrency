@@ -26,10 +26,10 @@ public class HystrixController2 {
      * 此值指定了线程被回收前的存活时间，默认为 2，即两分钟。
      * keepAliveTimeMinutes
      * 此属性设置保持活动时间，以分钟为单位。
-     * 
+     *
      * maximumSize 线程池最大值 不开启拒绝HystrixCommand的情况下支持的最大并发数
      * maxQueueSize 请求等待队列  coresize<maxQueueSize<maximumSize
-     * 求数小于最大线程数，却大于核心线程数的时候，会一起处理所有的请求，
+     * 请求数小于最大线程数，却大于核心线程数的时候，会一起处理所有的请求，
      * 当所有请求处理完毕的时候，会将多余核心数量的线程释放。
      *
      * numBuckets  设置rollingstatistical窗口划分的桶数。
