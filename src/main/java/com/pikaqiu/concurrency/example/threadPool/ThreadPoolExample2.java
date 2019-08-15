@@ -12,6 +12,12 @@ public class ThreadPoolExample2 {
 
         /**
          * 创建定长线程池 超出线程会等待
+         *
+         * 计算密集型 cpu+1 / cpu*2
+         *
+         * io 密集型 cpu/(1-阻塞系数 ) 阻塞系数 一般0.8-0.9 约为核数 5-10倍
+         *
+         * 所有线程池 加起来 不可以太大
          */
         ExecutorService executorService = Executors.newFixedThreadPool(3);
 
