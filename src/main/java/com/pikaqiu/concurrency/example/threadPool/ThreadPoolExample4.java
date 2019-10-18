@@ -32,13 +32,8 @@ public class ThreadPoolExample4 {
         //延迟三秒执行
 //        }, 3, TimeUnit.SECONDS);
 
-        executorService.scheduleAtFixedRate(new Runnable() {
-            @Override
-            public void run() {
-                log.warn("schedule run");
-            }
-            //延迟一秒  之后每隔三秒执行一次
-        }, 1, 3, TimeUnit.SECONDS);
+        //延迟一秒  之后每隔三秒执行一次
+        executorService.scheduleAtFixedRate(() -> log.warn("schedule run"), 1, 3, TimeUnit.SECONDS);
 //        executorService.shutdown();
 
         //五秒一次
