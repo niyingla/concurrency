@@ -23,7 +23,7 @@ public class ConcurrentSkipListMapExample {
     private static Map<Integer, Integer> map = new ConcurrentSkipListMap<>();
 
     /**
-     * key 有序 支持更高并发(存取时间和线程数无关)
+     * key 有序 支持更高并发(存取时间和线程数无关) （一般并发下 有限currentHashMap）
      * @param args
      * @throws Exception
      */
