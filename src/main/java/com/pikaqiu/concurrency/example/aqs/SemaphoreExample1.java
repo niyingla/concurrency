@@ -2,7 +2,6 @@ package com.pikaqiu.concurrency.example.aqs;
 
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
@@ -15,9 +14,8 @@ public class SemaphoreExample1 {
     /**
      * 信号量 控制某个资源同时访问的个数
      * @param args
-     * @throws Exception
      */
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
 
         ExecutorService exec = Executors.newCachedThreadPool();
 
