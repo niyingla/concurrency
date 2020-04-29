@@ -38,6 +38,7 @@ public class ForkJoinTaskExample extends RecursiveTask<Integer> {
         boolean canCompute = (end - start) <= threshold;
         if (canCompute) {
             for (int i = start; i <= end; i++) {
+                //计算
                 sum += i;
             }
         } else {
@@ -61,10 +62,11 @@ public class ForkJoinTaskExample extends RecursiveTask<Integer> {
     }
 
     public static void main(String[] args) {
+        log.info("start");
         ForkJoinPool forkjoinPool = new ForkJoinPool();
 
         //生成一个计算任务，计算1+2+3+4
-        ForkJoinTaskExample task = new ForkJoinTaskExample(1, 100);
+        ForkJoinTaskExample task = new ForkJoinTaskExample(1, 10000);
 
         //执行一个任务
         Future<Integer> result = forkjoinPool.submit(task);
