@@ -10,6 +10,12 @@ public class RequestHolder {
      */
     private final static ThreadLocal<Long> requestHolder = new ThreadLocal<>();
 
+    /**
+     * 可切换线程的threadLocal
+     * @param id
+     */
+    //public static InheritableThreadLocal threadLocal = new InheritableThreadLocal();
+
     public static void add(Long id) {
         requestHolder.set(id);
     }
