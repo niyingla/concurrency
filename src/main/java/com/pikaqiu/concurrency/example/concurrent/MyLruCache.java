@@ -1,7 +1,6 @@
 package com.pikaqiu.concurrency.example.concurrent;
 
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.*;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
@@ -26,8 +25,11 @@ public class MyLruCache<K, V> {
    * 读写锁
    */
   private ReadWriteLock readWriteLock = new ReentrantReadWriteLock();
+  //写锁 写锁和读锁/写锁互斥
   private Lock writeLock = readWriteLock.writeLock();
+  //读锁只和读锁不互斥
   private Lock readLock = readWriteLock.readLock();
+  private ScheduledExecutorService scheduledExecutorService;
 
   public MyLruCache(int maxCapacity) {
     if (maxCapacity < 0) {
@@ -36,10 +38,12 @@ public class MyLruCache<K, V> {
     this.maxCapacity = maxCapacity;
     cacheMap = new ConcurrentHashMap<>(maxCapacity);
     keys = new ConcurrentLinkedQueue<>();
+    //创建核心线程 = 3 的线程池
+    scheduledExecutorService = Executors.newScheduledThreadPool(3);
   }
 
   public V put(K key, V value) {
-    // 加写锁
+    // 加写锁 防止过程中读/写
     writeLock.lock();
     try {
       //1.key是否存在于当前缓存
@@ -63,7 +67,7 @@ public class MyLruCache<K, V> {
   }
 
   public V get(K key) {
-    //加读锁
+    //加读锁 防止过程中写
     readLock.lock();
     try {
       //key是否存在于当前缓存
@@ -112,6 +116,15 @@ public class MyLruCache<K, V> {
       cacheMap.remove(oldestKey);
     }
   }
+  private void removeAfterExpireTime(K key, long expireTime) {
+    //调度延迟任务
+    scheduledExecutorService.schedule(() -> {
+      //过期后清除该键值对
+      cacheMap.remove(key);
+      keys.remove(key);
+    }, expireTime, TimeUnit.MILLISECONDS);
+  }
+
 
   public int size() {
     return cacheMap.size();
