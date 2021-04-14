@@ -6,6 +6,10 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.atomic.AtomicIntegerFieldUpdater;
 
+/**
+ * @author 10479
+ */
+
 @Slf4j
 @ThreadSafe
 public class AtomicExample5 {
