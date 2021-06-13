@@ -15,6 +15,18 @@ public class GuavaCacheExample2 {
         Cache<String, Integer> cache = CacheBuilder.newBuilder()
                 .maximumSize(10) // 最多存放10个数据
                 .expireAfterWrite(10, TimeUnit.SECONDS) // 缓存10秒
+                //访问后多久过期
+                //.expireAfterAccess()
+                //初始容量
+                //.initialCapacity()
+                //写入后多久刷新
+                //.refreshAfterWrite()
+                //删除是 监听方法
+                //.removalListener()
+                //指定最大容量
+                //.maximumWeight()
+                //判断容量的方法
+                //.weigher()
                 .recordStats() // 开启记录状态数据功能
                 .build();
 
