@@ -1,17 +1,16 @@
 package com.pikaqiu.concurrency.example.cache;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
 import javax.annotation.PostConstruct;
 
-@Controller
+@Slf4j
+@RestController
 @RequestMapping("/cache")
 public class CacheController {
 
@@ -39,7 +38,7 @@ public class CacheController {
     public void pushMsg(@RequestParam String msg) {
         Jedis resource = jedisPool.getResource();
         resource.publish(MessageConsumer.CHANNEL_KEY, msg);
-
+        log.info("推送消息 ：{}", msg);
     }
 
     @PostConstruct

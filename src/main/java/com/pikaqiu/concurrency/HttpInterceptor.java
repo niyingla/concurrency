@@ -12,8 +12,8 @@ public class HttpInterceptor extends HandlerInterceptorAdapter {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        log.info("preHandle");
         //放行
+        log.info("preHandle");
         return true;
     }
 
